@@ -1,4 +1,6 @@
 louvois
 =======
 
-Outil de gestion de la paie des militaires
+Outil de gestion de la paie des militaires.
+Pour en savois plus :
+http://ecrivonslouvois.blogspot.fr/2014/12/aux-lignes-citoyens-formez-vos.html
