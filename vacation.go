@@ -1,5 +1,7 @@
 package louvois
 
+import "time"
+
 type VacationType struct {
 	title string
 }
@@ -7,6 +9,6 @@ type VacationType struct {
 type Vacation struct {
 	title          string
 	typeOfVacation VacationType
-	dateStart      time.Date
-	dateStop       time.Stop
+	dateStart      time.Time
+	dateStop       time.Time
 }

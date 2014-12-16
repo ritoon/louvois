@@ -8,14 +8,14 @@ import (
 type PayementType struct {
 	Id            int
 	title         string
-	dateDelivery  time.Date
-	dateEffective time.Date
+	dateDelivery  time.Time
+	dateEffective time.Time
 }
 
 type Pay struct {
 	title     string
-	dateStart time.Date
-	dateStop  time.Date
+	dateStart time.Time
+	dateStop  time.Time
 }
 
 func GetPay() {

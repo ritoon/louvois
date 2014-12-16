@@ -4,8 +4,8 @@ import "time"
 
 type Rank struct {
 	title     string
-	dateStart time.Date
-	dateStop  time.Date
+	dateStart time.Time
+	dateStop  time.Time
 }
 
 // amrée air, terre, mere
@@ -18,8 +18,8 @@ type Job struct {
 	soldierCategory SoldierCategory
 	soldierType     SoldierType
 	ranks           Rank
-	dateStart       time.Date
-	dateStop        time.Date
+	dateStart       time.Time
+	dateStop        time.Time
 }
 
 type SoldierCategory struct {
@@ -47,9 +47,9 @@ type Soldier struct {
 	underOrderOf  []Soldier
 	hasFamily     bool
 	nChildren     int
-	dateStartArmy time.Date
-	dateBorn      time.Date
-	dateDeath     time.Date
+	dateStartArmy time.Time
+	dateBorn      time.Time
+	dateDeath     time.Time
 }
 
 type Country struct {
@@ -67,8 +67,8 @@ type Adress struct {
 	streetNumber string
 	bat          string
 	special      string
-	dateStart    time.Date
-	dateStop     time.Date
+	dateStart    time.Time
+	dateStop     time.Time
 }
 
 type PhoneType struct {

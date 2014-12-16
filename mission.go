@@ -33,14 +33,14 @@ type Todo struct {
 	todotype  TodoType
 	bonus     []Bonus
 	state     string
-	dateStart time.Date
-	dateStop  time.Date
+	dateStart time.Time
+	dateStop  time.Time
 }
 
 type Mission struct {
 	title     string
 	risk      int
 	todos     []Todo
-	dateStart time.Date
-	dateStop  time.Date
+	dateStart time.Time
+	dateStop  time.Time
 }

@@ -14,6 +14,6 @@ type Disease struct {
 	title           string
 	diseaseType     DiseaseType
 	diseaseCategory DiseaseCategory
-	dateStart       time.Date
-	dateStop        time.Date
+	dateStart       time.Time
+	dateStop        time.Time
 }

@@ -15,5 +15,5 @@ type Wound struct {
 	mission       Mission
 	woundType     WoundType
 	woundCategory WoundCategory
-	date          time.Date
+	date          time.Time
 }
