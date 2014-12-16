@@ -2,13 +2,18 @@ package louvois
 
 import "time"
 
+type WoundCategory struct {
+	title string
+}
+
 type WoundType struct {
 	title  string
 	danger Danger
 }
 
 type Wound struct {
-	mission   Mission
-	woundType WoundType
-	date      time.Date
+	mission       Mission
+	woundType     WoundType
+	woundCategory WoundCategory
+	date          time.Date
 }
