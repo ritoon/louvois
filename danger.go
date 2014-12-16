@@ -17,3 +17,13 @@ type Danger struct {
 	dateStart      time.Time
 	dateStop       time.Time
 }
+
+func (d *Danger) dangerCoef() float64 {
+	switch {
+	case d.level == 0:
+		return 0.0
+	case d.level == 1:
+		return 0.1
+	}
+	return 0.0
+}
