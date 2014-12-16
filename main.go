@@ -1,9 +1,5 @@
-package main
-
-import (
-	"./louvois"
-)
+package louvois
 
 func main() {
-	louvois.StartServer()
+	//StartServer()
 }
