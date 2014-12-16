@@ -23,6 +23,6 @@ type Slip struct {
 	dateEdition  time.Time
 }
 
-func (s *Slip) Create(b Barrack, sol Soldier, lines []linesSlip) {
+func (s *Slip) Create(b Barrack, sol Soldier, lines []LineSlip) {
 
 }
