@@ -1,6 +1,9 @@
 package louvois
 
-import "time"
+import (
+	"errors"
+	"time"
+)
 
 type Rank struct {
 	title     string
@@ -78,4 +81,11 @@ type PhoneType struct {
 type Phone struct {
 	number    string
 	phoneType PhoneType
+}
+
+func (s *Soldier) FullName() (string, error) {
+	if s.firstName == "" || s.lastName == "" {
+		return "", errors.New("nom ou prénom incomplet")
+	}
+	return s.firstName + " " + s.lastName, nil
 }
