@@ -83,9 +83,25 @@ type Phone struct {
 	phoneType PhoneType
 }
 
-func (s *Soldier) FullName() (string, error) {
+func (s *Soldier) GetFullName() (string, error) {
 	if s.firstName == "" || s.lastName == "" {
 		return "", errors.New("nom ou prénom incomplet")
 	}
 	return s.firstName + " " + s.lastName, nil
+}
+
+func (s *Soldier) SetFullName(f, m, l string) error {
+	if f == "" || l == "" {
+		return errors.New("nom ou prénom non renseigné")
+	}
+	s.firstName = f
+	if m == "" {
+		s.lastName = l
+	} else if m == "d'" {
+		s.lastName = m + l
+	} else {
+		s.lastName = m + " " + l
+	}
+
+	return nil
 }

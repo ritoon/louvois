@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+	// set du prénom nom sur un soldat
 	var s louvois.Soldier
-	s.firstName = "Jhonn"
+	s.SetFullName("Ambra", "", "Bourassa")
 }
