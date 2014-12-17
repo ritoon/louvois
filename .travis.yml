@@ -7,5 +7,10 @@ go:
 install:
   - go get github.com/gorilla/mux
   - go get code.google.com/p/gofpdf
+  - go get code.google.com/p/go.tools/cmd/cover
+  - go get github.com/mattn/goveralls
 
-script: go test -v ./...
+script:
+	go test -v ./...
+	go test -v -covermode=count -coverprofile=coverage.out
+	$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken T74t146nDiEdxQmXliSZ54vG8qK4XFyCy
