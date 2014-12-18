@@ -38,21 +38,22 @@ type SoldierGroup struct {
 }
 
 type Soldier struct {
-	firstName     string
-	lastName      string
-	job           []Job
-	adress        []Adress
-	phone         []Phone
-	missions      []Mission
-	vacations     []Vacation
-	diseases      []Disease
-	responsibleOf []Soldier
-	underOrderOf  []Soldier
-	hasFamily     bool
-	nChildren     int
-	dateStartArmy time.Time
-	dateBorn      time.Time
-	dateDeath     time.Time
+	firstName            string
+	lastName             string
+	socialSecurityNumber string
+	job                  []Job
+	adress               []Adress
+	phone                []Phone
+	missions             []Mission
+	vacations            []Vacation
+	diseases             []Disease
+	responsibleOf        []Soldier
+	underOrderOf         []Soldier
+	hasFamily            bool
+	nChildren            int
+	dateStartArmy        time.Time
+	dateBorn             time.Time
+	dateDeath            time.Time
 }
 
 type Country struct {
@@ -83,16 +84,18 @@ type Phone struct {
 	phoneType PhoneType
 }
 
+// permet de récupérer le nom entier
 func (s *Soldier) GetFullName() (string, error) {
 	if s.firstName == "" || s.lastName == "" {
-		return "", errors.New("nom ou prénom incomplet")
+		return "", errors.New("Soldier : nom ou prénom incomplet")
 	}
 	return s.firstName + " " + s.lastName, nil
 }
 
+// permet de créer le nom
 func (s *Soldier) SetFullName(f, m, l string) error {
 	if f == "" || l == "" {
-		return errors.New("nom ou prénom non renseigné")
+		return errors.New("Soldier : nom ou prénom non renseigné")
 	}
 	s.firstName = f
 	if m == "" {
@@ -104,4 +107,19 @@ func (s *Soldier) SetFullName(f, m, l string) error {
 	}
 
 	return nil
+}
+
+func (s *Soldier) SetSocialSecurityNumber(n string) error {
+	if len(n) != 14 {
+		return errors.New("Soldier : Numero de sécurité social incorrect")
+	}
+	s.socialSecurityNumber = n
+	return nil
+}
+
+func (s *Soldier) GetSocialSecurityNumber() (string, error) {
+	if s.socialSecurityNumber == "" {
+		return "", errors.New("Soldier : numero de sécurité social non renseigné")
+	}
+	return s.socialSecurityNumber, nil
 }

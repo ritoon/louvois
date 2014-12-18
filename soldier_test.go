@@ -23,7 +23,7 @@ func TestGetFullName(t *testing.T) {
 			"B",
 			Soldier{firstName: "", lastName: ""},
 			"",
-			errors.New("nom ou prénom incomplet"),
+			errors.New("Soldier : nom ou prénom incomplet"),
 		},
 	}
 	for i := 0; i < len(data); i++ {
@@ -64,7 +64,7 @@ func TestSetFullName(t *testing.T) {
 			"",
 			"",
 			"",
-			errors.New("nom ou prénom non renseigné"),
+			errors.New("Soldier : nom ou prénom non renseigné"),
 		},
 		dataTest{
 			"C",
@@ -79,6 +79,42 @@ func TestSetFullName(t *testing.T) {
 		var s Soldier
 		s.SetFullName(data[i].inF, data[i].inM, data[i].inL)
 		res, _ := s.GetFullName()
+		if res != data[i].out {
+			t.Error(
+				"for ", data[i].title,
+				"expected ", data[i].out,
+				"got ", res,
+			)
+		}
+
+	}
+}
+
+func TestSetSocialSecurityNumber(t *testing.T) {
+	type dataTest struct {
+		title  string
+		in     string
+		out    string
+		outErr error
+	}
+	data := []dataTest{
+		dataTest{
+			"A",
+			"28812930100143",
+			"28812930100143",
+			nil,
+		},
+		dataTest{
+			"B",
+			"18912930100143",
+			"18912930100143",
+			errors.New("Soldier : nom ou prénom non renseigné"),
+		},
+	}
+	for i := 0; i < len(data); i++ {
+		var s Soldier
+		s.SetSocialSecurityNumber(data[i].in)
+		res, _ := s.GetSocialSecurityNumber()
 		if res != data[i].out {
 			t.Error(
 				"for ", data[i].title,
